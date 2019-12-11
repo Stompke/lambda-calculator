@@ -20,3 +20,72 @@
     padding-right: 8%;
     font-size: 5.0rem;
   }
+  
+  button {
+      color: white;
+      border: 0px;
+      font-size: 1.7rem;
+  }
+
+  button:hover {
+      cursor: pointer;
+      
+  }
+
+
+  .App {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px;
+  }
+
+  .left-column {
+      display: flex;
+      justify-content: center;
+      flex-flow: row wrap;
+      width: 70%;
+  }
+  .left-column .numbers {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .left-column .special-container button{
+      background-color: #235c9e;
+  }
+
+  .left-column .numbers button{
+    background-color: #194279;
+}
+
+.right-column  button{
+    background-color: #237293;
+}
+
+  .left-column button {
+     
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin: 10px;
+  }
+
+  button:nth-child(10) {
+      width: 182px;
+      border-radius: 40px;
+  }
+
+  .right-column > div {
+      display: flex;
+      flex-flow: column;
+      
+    
+  }
+
+  .right-column > div > button {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin: 10px;
+  }
