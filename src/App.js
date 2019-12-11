@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import Numbers from './components/ButtonComponents/NumberButtons/Numbers.js';
+import Operators from './components/ButtonComponents/OperatorButtons/Operators.js';
+import Specials from './components/ButtonComponents/SpecialButtons/Specials';
+import Display from './components/DisplayComponents/Display';
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
@@ -13,11 +17,48 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
+  const [activeNumber, setActiveNumber] = useState('');
+  const [activeOperator, setActiveOperator] = useState('');
+  const [savedNumber, setSavedNumber] = useState();
+
+  let operator = '';
+
+
+
+  if (activeOperator == '*' ) {
+    setSavedNumber(activeNumber);
+    operator = activeOperator;
+    setActiveNumber('');
+
+    console.log(operator);
+    setActiveOperator('');
+  }
+
+  if (activeOperator == '='){
+    console.log('calculation');
+    console.log(savedNumber);
+    console.log(operator);
+    console.log(activeOperator);
+    console.log(activeNumber);
+    console.log(savedNumber * activeNumber);
+    setActiveOperator('');
+    setActiveNumber(savedNumber * activeNumber);
+  }
+  
+
   return (
     <div className="container">
       <Logo />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        <Display number={activeNumber} />
+        <div className='left-column'>
+        <Specials />
+        <Numbers activeNumber={activeNumber}  setActiveNumber={setActiveNumber}/>
+        </div>
+        <div className='right-column'>
+        <Operators activeOperator={activeOperator}  setActiveOperator={setActiveOperator} />
+        </div>
       </div>
     </div>
   );
