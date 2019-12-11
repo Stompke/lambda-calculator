@@ -18,7 +18,24 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [activeNumber, setActiveNumber] = useState(1);
-  const [activeOperator, setActiveOperator] = useState('x');
+  const [activeOperator, setActiveOperator] = useState('');
+
+  let num1 = 0;
+  let operator = '';
+
+  if (activeOperator == '*' ) {
+    num1 = activeNumber;
+    operator = activeOperator;
+    setActiveNumber(0);
+    console.log(num1);
+    console.log(operator);
+    setActiveOperator('');
+  }
+
+  if (activeOperator == '='){
+    setActiveNumber(num1 * activeNumber);
+    setActiveOperator('');
+  }
   
 
   return (
