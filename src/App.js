@@ -17,24 +17,32 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
-  const [activeNumber, setActiveNumber] = useState(1);
+  const [activeNumber, setActiveNumber] = useState('');
   const [activeOperator, setActiveOperator] = useState('');
+  const [savedNumber, setSavedNumber] = useState();
 
-  let num1 = 0;
   let operator = '';
 
+
+
   if (activeOperator == '*' ) {
-    num1 = activeNumber;
+    setSavedNumber(activeNumber);
     operator = activeOperator;
     setActiveNumber(0);
-    console.log(num1);
+
     console.log(operator);
     setActiveOperator('');
   }
 
   if (activeOperator == '='){
-    setActiveNumber(num1 * activeNumber);
+    console.log('calculation');
+    console.log(savedNumber);
+    console.log(operator);
+    console.log(activeOperator);
+    console.log(activeNumber);
+    console.log(savedNumber * activeNumber);
     setActiveOperator('');
+    setActiveNumber(savedNumber * activeNumber);
   }
   
 
