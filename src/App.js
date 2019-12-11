@@ -28,7 +28,7 @@ function App() {
   if (activeOperator == '*' ) {
     setSavedNumber(activeNumber);
     operator = activeOperator;
-    setActiveNumber(0);
+    setActiveNumber('');
 
     console.log(operator);
     setActiveOperator('');
